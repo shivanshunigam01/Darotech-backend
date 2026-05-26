@@ -1,0 +1,1 @@
+import { Schema, model } from 'mongoose'; export default model('Portfolio',new Schema({title:{type:String,required:true},slug:{type:String,unique:true,index:true},client:String,category:String,coverImage:String,gallery:[String],description:String,results:[String],liveUrl:String,status:{type:String,enum:['Published','Draft'],default:'Published'}},{timestamps:true}));

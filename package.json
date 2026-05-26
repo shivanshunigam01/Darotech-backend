@@ -1,0 +1,45 @@
+{
+  "name": "darotech-backend",
+  "version": "1.0.0",
+  "description": "Fully-fledged Node Express MongoDB backend for Darotech website and admin dashboard",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "seed": "node src/utils/seedDatabase.js",
+    "test:api": "node scripts/api-integration-test.mjs",
+    "lint": "eslint src --ext .js"
+  },
+  "dependencies": {
+    "bcryptjs": "latest",
+    "compression": "latest",
+    "cookie-parser": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "express": "^4.18.3",
+    "express-rate-limit": "latest",
+    "helmet": "latest",
+    "jsonwebtoken": "latest",
+    "json2csv": "latest",
+    "mongoose": "latest",
+    "morgan": "latest",
+    "multer": "latest",
+    "node-cron": "latest",
+    "nodemailer": "latest",
+    "pdfkit": "latest",
+    "razorpay": "latest",
+    "slugify": "latest",
+    "stripe": "latest",
+    "winston": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "nodemon": "latest",
+    "prettier": "latest"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,1 @@
+import { Router } from 'express'; import * as c from '../controllers/media.controller.js'; import { requireAuth } from '../middlewares/auth.js'; import { upload } from '../middlewares/upload.js'; const r=Router(); r.get('/',requireAuth,c.list); r.post('/',requireAuth,upload.single('file'),c.uploadOne); r.delete('/:id',requireAuth,c.remove); export default r;

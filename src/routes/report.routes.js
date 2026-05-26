@@ -1,0 +1,1 @@
+import { Router } from 'express'; import * as c from '../controllers/report.controller.js'; import { requireAuth } from '../middlewares/auth.js'; const r=Router(); r.use(requireAuth); r.get('/summary',c.dashboardSummary); r.get('/revenue/monthly',c.monthlyRevenue); r.get('/leads/by-status',c.leadsByStatus); r.get('/leads/by-source',c.leadsBySource); export default r;

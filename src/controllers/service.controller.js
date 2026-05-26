@@ -1,0 +1,1 @@
+import { makeCrud } from './crudFactory.js'; import Model from '../models/Service.js'; export const { create, list, get, getBySlug, update, remove } = makeCrud(Model,{searchFields:['title', 'category']});

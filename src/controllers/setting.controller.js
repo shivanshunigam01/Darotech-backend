@@ -1,0 +1,5 @@
+import Setting from '../models/Setting.js'; import { asyncHandler } from '../middlewares/asyncHandler.js'; import { ok } from '../utils/ApiResponse.js';
+const safe=(s)=>s?{companyName:s.companyName,logo:s.logo,favicon:s.favicon,primaryColor:s.primaryColor,secondaryColor:s.secondaryColor,email:s.email,phone:s.phone,whatsapp:s.whatsapp,address:s.address,socialLinks:s.socialLinks,googleMapEmbed:s.googleMapEmbed,seoTitle:s.seoTitle,seoDescription:s.seoDescription,chatbot:s.chatbot,payment:{mode:s.payment?.mode,currency:s.payment?.currency,taxPercentage:s.payment?.taxPercentage}}:{};
+export const getPublic=asyncHandler(async(req,res)=>ok(res,safe(await Setting.findOne())));
+export const getAdmin=asyncHandler(async(req,res)=>ok(res,await Setting.findOne()));
+export const update=asyncHandler(async(req,res)=>ok(res,await Setting.findOneAndUpdate({},req.body,{new:true,upsert:true,setDefaultsOnInsert:true}),'Settings updated'));

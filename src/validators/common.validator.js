@@ -1,0 +1,1 @@
+import { z } from 'zod'; export const idParam=z.object({params:z.object({id:z.string().regex(/^[0-9a-fA-F]{24}$/,'Invalid MongoDB id')})}); export const slugParam=z.object({params:z.object({slug:z.string().min(1)})});

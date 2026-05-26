@@ -1,0 +1,2 @@
+import { Schema, model } from 'mongoose';
+const schema=new Schema({service:{type:Schema.Types.ObjectId,ref:'Service',required:true,index:true},serviceSlug:{type:String,index:true},name:{type:String,required:true},price:{type:Number,required:true},discountPrice:Number,duration:String,features:[String],isPopular:{type:Boolean,default:false},status:{type:String,enum:['Active','Inactive'],default:'Active'},ctaText:{type:String,default:'Buy Now'}},{timestamps:true}); export default model('Package',schema);

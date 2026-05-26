@@ -1,0 +1,1 @@
+import { Schema, model } from 'mongoose'; export default model('Testimonial',new Schema({clientName:{type:String,required:true},clientImage:String,company:String,rating:{type:Number,min:1,max:5,default:5},reviewText:String,serviceUsed:String,status:{type:String,enum:['Approved','Pending'],default:'Pending'}},{timestamps:true}));

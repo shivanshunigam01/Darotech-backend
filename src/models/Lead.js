@@ -1,0 +1,2 @@
+import { Schema, model } from 'mongoose';
+const schema=new Schema({name:{type:String,required:true},email:{type:String,required:true,index:true},phone:String,service:String,source:{type:String,enum:['Contact Form','Service Inquiry','Chatbot','Pricing Checkout','Callback','WhatsApp'],default:'Contact Form'},budget:String,status:{type:String,enum:['New','Contacted','Qualified','Proposal Sent','Converted','Lost'],default:'New',index:true},assignedTo:{type:Schema.Types.ObjectId,ref:'User'},notes:String},{timestamps:true}); export default model('Lead',schema);

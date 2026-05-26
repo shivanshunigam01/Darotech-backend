@@ -1,0 +1,3 @@
+import { z } from 'zod';
+export const createLeadSchema=z.object({body:z.object({name:z.string().min(2),email:z.string().email(),phone:z.string().optional(),service:z.string().optional(),source:z.enum(['Contact Form','Service Inquiry','Chatbot','Pricing Checkout','Callback','WhatsApp']).optional(),budget:z.string().optional(),notes:z.string().max(2000).optional()})});
+export const updateLeadSchema=z.object({params:z.object({id:z.string().regex(/^[0-9a-fA-F]{24}$/)}),body:createLeadSchema.shape.body.partial().extend({status:z.enum(['New','Contacted','Qualified','Proposal Sent','Converted','Lost']).optional(),assignedTo:z.string().regex(/^[0-9a-fA-F]{24}$/).optional()})});

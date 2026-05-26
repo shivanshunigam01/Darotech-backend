@@ -1,0 +1,1 @@
+import { Router } from 'express'; import * as c from '../controllers/section.controller.js'; import { requireAuth, requireRole } from '../middlewares/auth.js'; const r=Router(); r.get('/',c.list);  r.post('/',requireAuth,c.create); r.get('/:id',requireAuth,c.get); r.patch('/:id',requireAuth,c.update); r.delete('/:id',requireAuth,requireRole('admin'),c.remove); export default r;

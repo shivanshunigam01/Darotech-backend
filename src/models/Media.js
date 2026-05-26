@@ -1,0 +1,1 @@
+import { Schema, model } from 'mongoose'; export default model('Media',new Schema({name:String,url:String,path:String,mimeType:String,type:{type:String,enum:['image','video','document'],default:'image'},size:Number,uploadedBy:{type:Schema.Types.ObjectId,ref:'User'}},{timestamps:true}));

@@ -1,0 +1,1 @@
+import { Schema, model } from 'mongoose'; export default model('Page',new Schema({title:{type:String,required:true},slug:{type:String,required:true,unique:true},seoTitle:String,seoDescription:String,bannerImage:String,content:String,status:{type:String,enum:['Published','Draft'],default:'Draft'}},{timestamps:true}));

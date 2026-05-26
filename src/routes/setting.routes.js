@@ -1,0 +1,1 @@
+import { Router } from 'express'; import * as c from '../controllers/setting.controller.js'; import { requireAuth, requireRole } from '../middlewares/auth.js'; const r=Router(); r.get('/',c.getPublic); r.get('/admin',requireAuth,c.getAdmin); r.put('/',requireAuth,requireRole('admin'),c.update); export default r;

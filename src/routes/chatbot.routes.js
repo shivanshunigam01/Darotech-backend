@@ -1,0 +1,1 @@
+import { Router } from 'express'; import * as c from '../controllers/chatbot.controller.js'; import { publicLimiter } from '../middlewares/rateLimit.js'; const r=Router(); r.post('/message',publicLimiter,c.message); export default r;
