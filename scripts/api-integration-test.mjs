@@ -61,6 +61,14 @@ async function run() {
   }
 
   // Public reads
+  try {
+    const j = await req("/payments/config", { auth: false });
+    if (!j.data?.gateways?.includes("Manual")) throw new Error("bad config");
+    pass(`GET /payments/config (gateways: ${j.data.gateways.join(", ")})`);
+  } catch (e) {
+    fail("GET /payments/config", e.message);
+  }
+
   for (const [name, path] of [
     ["GET /settings (public)", "/settings"],
     ["GET /services (public)", "/services?page=1&limit=5"],
